@@ -135,7 +135,7 @@ ALLOWED_HOSTS = [
 
 User = get_user_model()
 
-if not User.objects.filter(username=admin@@cits).exists():
+if not User.objects.filter(username="admin@@cits").exists():
     User.objects.create_superuser(
         "admin@@cits",
         "admin@@cits@gmail.com",

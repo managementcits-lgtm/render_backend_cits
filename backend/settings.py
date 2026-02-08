@@ -11,7 +11,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com","api.cits.org.in"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

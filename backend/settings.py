@@ -124,6 +124,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True
 
+#hosts
 ALLOWED_HOSTS = [
     "api.cits.org.in",
     "cits.org.in",

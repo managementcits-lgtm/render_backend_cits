@@ -60,18 +60,6 @@ class JobListAPIView(APIView):
         )
         serializer = JobSerializer(jobs, many=True)
         return Response(serializer.data)
-
-    def get(self, request):
-        today = timezone.now().date()
-
-        jobs = Job.objects.filter(
-            is_active=True,
-            application_start_date__lte=today,
-            application_end_date__gte=today
-        )
-
-        serializer = JobSerializer(jobs, many=True)
-        return Response(serializer.data)
     
 class CareerApplicationCreate(APIView):
 

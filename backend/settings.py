@@ -2,7 +2,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
-from django.contrib.auth import get_user_model
 
 load_dotenv()
 
@@ -133,12 +132,4 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 ]
 
-User = get_user_model()
-
-if not User.objects.filter(username="admin@@cits").exists():
-    User.objects.create_superuser(
-        "admin@@cits",
-        "admin@@cits@gmail.com",
-        "admin@@cits@123"
-    )
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -1,9 +1,25 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-import dj_database_url
-
 load_dotenv()
+import dj_database_url
+import cloudinary
+
+cloudinary.config(
+    cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key = os.getenv("CLOUDINARY_API_KEY"),
+    api_secret = os.getenv("CLOUDINARY_API_SECRET"),
+    secure = True
+)
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
-    "api",
+    "cloudinary_storage",
+    "cloudinary",
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [
